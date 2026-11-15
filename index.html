@@ -266,7 +266,7 @@
 
     /* Closing */
     .closing-inner { max-width: 780px; padding: 56px 40px; border: 1px solid rgba(169,225,209,.2); border-radius: 28px; background: linear-gradient(145deg, rgba(20,60,57,.72), rgba(9,39,38,.6)); box-shadow: var(--shadow); }
-    .closing .button-primary { animation: ring 2.6s ease-out infinite; }
+    .booking-calendar { width: 100%; height: 780px; margin-top: 28px; }
     @keyframes ring { 0% { box-shadow: 0 0 0 0 rgba(169,225,209,.4); } 100% { box-shadow: 0 0 0 18px rgba(169,225,209,0); } }
 
     @media (prefers-reduced-motion: reduce) {
@@ -338,7 +338,7 @@
         <a class="nav-link" href="#how">How it works</a>
         <a class="nav-link" href="#tools">Tools</a>
         <a class="nav-link" href="#team">Team</a>
-        <a class="button button-primary" href="https://calendar.app.google/g4dn7xs6pKXt7xp56" target="_blank" rel="noopener noreferrer">Book a free 15-minute audit <span class="button-arrow" aria-hidden="true">↗</span></a>
+        <a class="button button-primary" href="#book">Book a free 15-minute audit <span class="button-arrow" aria-hidden="true">↗</span></a>
       </div>
     </div>
   </nav>
@@ -352,7 +352,7 @@
           <h1>Spend less time on <em>follow-ups.</em></h1>
           <p class="hero-copy">Practical automation for client check-ins, new enquiries and the admin in between — designed around the tools you already use.</p>
           <div class="hero-buttons">
-            <a class="button button-primary" href="https://calendar.app.google/g4dn7xs6pKXt7xp56" target="_blank" rel="noopener noreferrer">Book a free 15-minute audit <span class="button-arrow" aria-hidden="true">→</span></a>
+            <a class="button button-primary" href="#book">Book a free 15-minute audit <span class="button-arrow" aria-hidden="true">→</span></a>
             <a class="button button-secondary" href="#examples">Explore workflow examples</a>
           </div>
           <div class="hero-note">A practical conversation about what could be automated</div>
@@ -527,7 +527,26 @@
         <div class="section-kicker">Ready when you are</div>
         <h2 id="closing-heading">Get more of your time back.</h2>
         <p class="section-description">Book a free 15-minute audit. No pressure — just a focused conversation about where automation could help.</p>
-        <a class="button button-primary" href="https://calendar.app.google/g4dn7xs6pKXt7xp56" target="_blank" rel="noopener noreferrer">Book your free 15-minute audit <span class="button-arrow" aria-hidden="true">→</span></a>
+        <div class="booking-calendar">
+          <!-- Cal inline embed code begins -->
+          <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-audit-call"></div>
+          <script type="text/javascript">
+            (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+            Cal("init", "audit-call", {origin:"https://app.cal.com"});
+            Cal.config = Cal.config || {};
+            Cal.config.forwardQueryParams = true;
+
+            Cal.ns["audit-call"]("inline", {
+              elementOrSelector:"#my-cal-inline-audit-call",
+              config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+              calLink: "satya-oe97wu/audit-call",
+            });
+
+            Cal.ns["audit-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+          </script>
+          <!-- Cal inline embed code ends -->
+        </div>
+        <p class="email-note">Calendar not loading? <a href="https://cal.com/satya-oe97wu/audit-call" target="_blank" rel="noopener noreferrer">Book directly on Cal.com</a></p>
         <p class="email-note">Prefer email? <a href="mailto:satyabuildsai@gmail.com">satyabuildsai@gmail.com</a></p>
       </div>
     </section>
